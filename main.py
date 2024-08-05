@@ -16,7 +16,6 @@ app.include_router(member_router, prefix='/member')
 app.include_router(board_router, prefix='/board')
 
 
-
 @app.get("/", response_class=HTMLResponse) # Atl+Enter
 async def index(req: Request):
     return templates.TemplateResponse('index.html', {'request': req})
@@ -44,3 +43,7 @@ async def join(req: Request):
 @member_router.get("/myinfo", response_class=HTMLResponse) # Atl+Enter
 async def myinfo(req: Request):
     return templates.TemplateResponse('member.myinfo.html', {'request': req})
+
+@member_router.get("/list", response_class=HTMLResponse) # Atl+Enter
+async def myinfo(req: Request):
+    return templates.TemplateResponse('member.list.html', {'request': req})
